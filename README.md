@@ -12,13 +12,10 @@ This repository contains my personal collection of Microsoft Graph API request e
 - SharePoint page creation, publishing, and web part management
 
 ## Usage
-
-I have included the Postman collection JSON file (`GraphAPI.postman_collection.json`) in this repository. You can import this file into Postman or the Bruno app to explore and test the API endpoints as collections.
+I have included the Postman collection JSON file ([GraphAPI.postman_collection.json](GraphAPI.postman_collection.json)) in this repository. You can import this file into Postman or the Bruno app to explore and test the API endpoints as collections.
 
 ## Documentation
-
-Detailed API endpoint descriptions and request examples are available in the included HTML documentation (`Docs/GraphAPI - SharePoint-documentation.html`).
+Detailed API endpoint descriptions and request examples are available in the included HTML documentation ([GraphAPI - SharePoint-documentation.html](Docs/GraphAPI%20-%20SharePoint-documentation.html)).
 
 ## Contributing
-
 This is a personal collection, but suggestions and improvements are welcome via issues or pull requests.
