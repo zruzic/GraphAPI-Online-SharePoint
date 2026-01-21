@@ -1,5 +1,18 @@
-# Postman environments (often contain real secrets)
+# Postman & Bruno environments (often contain real secrets)
 *.postman_environment.json
+.bru/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# PowerShell
+# If you create a local credentials file, it won't be uploaded
+powershell/credentials.ps1
 
 # OS files
 .DS_Store
