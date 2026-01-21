@@ -13,7 +13,7 @@ This repository contains my personal collection of Microsoft Graph API request e
 
 ## Usage
 
-Import the Postman collection (`GraphAPI.postman_collection.json`) into Postman to explore and test the API endpoints.
+I have included the Postman collection JSON file (`GraphAPI.postman_collection.json`) in this repository. You can import this file into Postman or the Bruno app to explore and test the API endpoints as collections.
 
 ## Documentation
 
