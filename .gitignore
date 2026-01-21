@@ -1,0 +1,6 @@
+# Postman environments (often contain real secrets)
+*.postman_environment.json
+
+# OS files
+.DS_Store
+Thumbs.db
