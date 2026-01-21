@@ -1,1 +1,9 @@
+# Handle line endings automatically for text files
+* text=auto
+
+# Ensure specific file types always use LF (Linux/Mac style) line endings
 *.json text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.psm1 text eol=lf
+*.md text eol=lf
