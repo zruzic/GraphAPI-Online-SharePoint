@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "GraphAPI Online SharePoint",
+    "name": "GraphAPI + SharePoint REST API",
     "description": "",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -674,837 +674,6 @@
       ]
     },
     {
-      "name": "COMPLIANCE - Retention & Sensitivity",
-      "item": [
-        {
-          "name": "COMPLIANCE - Apply Retention Label to File",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"retentionLabel\": {\n    \"name\": \"Project Files\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "COMPLIANCE - Apply Retention Label to Folder",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FolderID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FolderID}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"retentionLabel\": {\n    \"name\": \"Important Documents\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "COMPLIANCE - Get File Retention Label",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/retentionLabel",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}",
-                "retentionLabel"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "FILES - Management",
-      "item": [
-        {
-          "name": "FILE - Cancel Upload Session",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "{{UploadSessionURL}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Complete Upload (Final Chunk)",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Length",
-                "value": "102400",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Range",
-                "value": "bytes 10383360-10485759/10485760",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "{{UploadSessionURL}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Copy File",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/copy",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}",
-                "copy"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"parentReference\": {\n    \"driveId\": \"{{DriveID}}\",\n    \"id\": \"root\"\n  },\n  \"name\": \"FileCopy.txt\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "FILE - Create Folder",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/root/children",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "root",
-                "children"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"NewFolder\",\n  \"folder\": {},\n  \"@microsoft.graph.conflictBehavior\": \"rename\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "FILE - Create Upload Session (Large Files)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/root:/{filename}:/createUploadSession",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "root:",
-                "{filename}:",
-                "createUploadSession"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"item\": {\n    \"@microsoft.graph.conflictBehavior\": \"rename\",\n    \"name\": \"LargeFile.zip\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "FILE - Delete File",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Download File",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/content",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}",
-                "content"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Get File Metadata",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Get Folder Contents",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FolderID}}/children",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FolderID}}",
-                "children"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Get Upload Session Status",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "{{UploadSessionURL}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Move File",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"parentReference\": {\n    \"id\": \"{{DestinationFolderID}}\"\n  },\n  \"name\": \"file.txt\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "FILE - Rename File",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"NewFileName.txt\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "FILE - Search Files by Name",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/root/search(q='searchterm')",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "root",
-                "search(q='searchterm')"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "FILE - Upload Chunk (Fragment)",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Length",
-                "value": "327680",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Range",
-                "value": "bytes 0-327679/10485760",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "{{UploadSessionURL}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        }
-      ]
-    },
-    {
       "name": "LISTS & LIBRARIES - Structure & Settings",
       "item": [
         {
@@ -1705,343 +874,6 @@
                 "{{SiteID}}",
                 "lists",
                 "{{ListID}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "PAGES - Site Pages",
-      "item": [
-        {
-          "name": "PAGES - Add Web Part to Page",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}/webparts",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "sites",
-                "{{SiteID}}",
-                "pages",
-                "{{PageID}}",
-                "webparts"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"webPartData\": {\n    \"id\": \"webpartid\",\n    \"instanceId\": \"guid\",\n    \"title\": \"My Web Part\",\n    \"serverProcessedContent\": {\n      \"htmlStrings\": {},\n      \"searchablePlainTexts\": [],\n      \"imageSources\": [],\n      \"links\": []\n    },\n    \"dataVersion\": \"1.0\",\n    \"properties\": {}\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "PAGES - Create Page",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "sites",
-                "{{SiteID}}",
-                "pages"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"NewPage.aspx\",\n  \"title\": \"My New Page\",\n  \"layoutWebpartId\": \"3eb3e627-5144-4667-83d5-7662c6abb714\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "PAGES - Delete Page",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "sites",
-                "{{SiteID}}",
-                "pages",
-                "{{PageID}}"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "PAGES - Get All Pages",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "sites",
-                "{{SiteID}}",
-                "pages"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "PAGES - Publish Page",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}/publish",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "sites",
-                "{{SiteID}}",
-                "pages",
-                "{{PageID}}",
-                "publish"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "PAGES - Update Page Title and Description",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "sites",
-                "{{SiteID}}",
-                "pages",
-                "{{PageID}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"title\": \"Updated Page Title\",\n  \"description\": \"Updated page description\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "PAGES - Get Page Details",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "sites",
-                "{{SiteID}}",
-                "pages",
-                "{{PageID}}"
               ],
               "query": [],
               "variable": []
@@ -3145,6 +1977,63 @@
           }
         },
         {
+          "name": "SECURITY - Share with User (Read-Only)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/invite",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}",
+                "invite"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipients\": [\n    {\n      \"email\": \"user@example.com\"\n    }\n  ],\n  \"roles\": [\"read\"],\n  \"requireSignIn\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
           "name": "SECURITY - Update Document Set Permission Role",
           "request": {
             "method": "PATCH",
@@ -3194,63 +2083,6 @@
             "body": {
               "mode": "raw",
               "raw": "{\n  \"roles\": [\n    \"read\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "SECURITY - Share with User (Read-Only)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{AccessToken}}",
-                "disabled": false,
-                "type": "default"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "disabled": false,
-                "type": "default"
-              }
-            ],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/invite",
-              "protocol": "https",
-              "host": [
-                "graph",
-                "microsoft",
-                "com"
-              ],
-              "path": [
-                "v1.0",
-                "drives",
-                "{{DriveID}}",
-                "items",
-                "{{FileID}}",
-                "invite"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"recipients\": [\n    {\n      \"email\": \"user@example.com\"\n    }\n  ],\n  \"roles\": [\"read\"],\n  \"requireSignIn\": true\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3952,6 +2784,2059 @@
       ]
     },
     {
+      "name": "PAGES - Site Pages",
+      "item": [
+        {
+          "name": "PAGES - Add Web Part to Page",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}/webparts",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "sites",
+                "{{SiteID}}",
+                "pages",
+                "{{PageID}}",
+                "webparts"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webPartData\": {\n    \"id\": \"webpartid\",\n    \"instanceId\": \"guid\",\n    \"title\": \"My Web Part\",\n    \"serverProcessedContent\": {\n      \"htmlStrings\": {},\n      \"searchablePlainTexts\": [],\n      \"imageSources\": [],\n      \"links\": []\n    },\n    \"dataVersion\": \"1.0\",\n    \"properties\": {}\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PAGES - Create Page",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "sites",
+                "{{SiteID}}",
+                "pages"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"NewPage.aspx\",\n  \"title\": \"My New Page\",\n  \"layoutWebpartId\": \"3eb3e627-5144-4667-83d5-7662c6abb714\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PAGES - Delete Page",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "sites",
+                "{{SiteID}}",
+                "pages",
+                "{{PageID}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "PAGES - Get All Pages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "sites",
+                "{{SiteID}}",
+                "pages"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "PAGES - Get Page Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "sites",
+                "{{SiteID}}",
+                "pages",
+                "{{PageID}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "PAGES - Publish Page",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}/publish",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "sites",
+                "{{SiteID}}",
+                "pages",
+                "{{PageID}}",
+                "publish"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "PAGES - Update Page Title and Description",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/sites/{{SiteID}}/pages/{{PageID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "sites",
+                "{{SiteID}}",
+                "pages",
+                "{{PageID}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Page Title\",\n  \"description\": \"Updated page description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FILES - Management",
+      "item": [
+        {
+          "name": "FILE - Cancel Upload Session",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "{{UploadSessionURL}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Complete Upload (Final Chunk)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Length",
+                "value": "102400",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Range",
+                "value": "bytes 10383360-10485759/10485760",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "{{UploadSessionURL}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Copy File",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/copy",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}",
+                "copy"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parentReference\": {\n    \"driveId\": \"{{DriveID}}\",\n    \"id\": \"root\"\n  },\n  \"name\": \"FileCopy.txt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "FILE - Create Folder",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/root/children",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "root",
+                "children"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"NewFolder\",\n  \"folder\": {},\n  \"@microsoft.graph.conflictBehavior\": \"rename\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "FILE - Create Upload Session (Large Files)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/root:/{filename}:/createUploadSession",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "root:",
+                "{filename}:",
+                "createUploadSession"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item\": {\n    \"@microsoft.graph.conflictBehavior\": \"rename\",\n    \"name\": \"LargeFile.zip\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "FILE - Delete File",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Download File",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/content",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}",
+                "content"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Get File Metadata",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Get Folder Contents",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FolderID}}/children",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FolderID}}",
+                "children"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Get Upload Session Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "{{UploadSessionURL}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Move File",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parentReference\": {\n    \"id\": \"{{DestinationFolderID}}\"\n  },\n  \"name\": \"file.txt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "FILE - Rename File",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"NewFileName.txt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "FILE - Search Files by Name",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/root/search(q='searchterm')",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "root",
+                "search(q='searchterm')"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "FILE - Upload Chunk (Fragment)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Length",
+                "value": "327680",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Range",
+                "value": "bytes 0-327679/10485760",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/{{UploadSessionURL}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "{{UploadSessionURL}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SHAREPOINT REST API - AUTHENTICATION",
+      "item": [
+        {
+          "name": "Get List ID (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Documents')/Id",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Documents')",
+                "Id"
+              ],
+              "query": [],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "if (res.getStatus() === 200) {",
+                  "    var jsonData = res.getBody();",
+                  "    var listId = jsonData.d.Id;",
+                  "    bru.setEnvVar('RestListID', listId);",
+                  "    console.log('✓ SharePoint List ID retrieved: ' + listId);",
+                  "} else {",
+                  "    console.log('✗ List ID lookup failed: ' + res.statusText);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Site ID (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/site/id",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "site",
+                "id"
+              ],
+              "query": [],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "if (res.getStatus() === 200) {",
+                  "    var jsonData = res.getBody();",
+                  "    var siteId = jsonData.d.Id;",
+                  "    bru.setEnvVar('RestSiteID', siteId);",
+                  "    console.log('✓ SharePoint Site ID retrieved: ' + siteId);",
+                  "} else {",
+                  "    console.log('✗ Site ID lookup failed: ' + res.statusText);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Token via Client Credentials (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://login.microsoftonline.com/{{TenantID}}/oauth2/v2.0/token",
+              "protocol": "https",
+              "host": [
+                "login",
+                "microsoftonline",
+                "com"
+              ],
+              "path": [
+                "{{TenantID}}",
+                "oauth2",
+                "v2.0",
+                "token"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{ClientID}}",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "{{ClientSecret}}",
+                  "disabled": false,
+                  "type": "default"
+                },
+                {
+                  "key": "scope",
+                  "value": "https://graph.microsoft.com/.default",
+                  "disabled": false,
+                  "type": "default"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "if (res.getStatus() === 200) {",
+                  "    var jsonData = res.getBody();",
+                  "    bru.setEnvVar('AccessToken', jsonData.access_token);",
+                  "    bru.setEnvVar('TokenExpiration', new Date(Date.now() + jsonData.expires_in * 1000).toISOString());",
+                  "    console.log('✓ Access token obtained for REST API');",
+                  "} else {",
+                  "    console.log('✗ Token request failed: ' + res.statusText);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SHAREPOINT REST API - FILES",
+      "item": [
+        {
+          "name": "Copy File (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"destUrl\": \"https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/Shared Documents/FileCopy.txt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Create Folder (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/folders/add(url='NewFolder')",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "folders",
+                "add(url='NewFolder')"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"SP.Folder\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Delete File (REST)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "X-HTTP-Method",
+                "value": "DELETE",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/getfilebyserverrelativeurl('/sites/{{SiteName}}/Shared Documents/file.txt')",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "getfilebyserverrelativeurl('",
+                "sites",
+                "{{SiteName}}",
+                "Shared Documents",
+                "file.txt')"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Download File (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/getfilebyserverrelativeurl('/sites/{{SiteName}}/Shared Documents/file.txt')/$value",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "getfilebyserverrelativeurl('",
+                "sites",
+                "{{SiteName}}",
+                "Shared Documents",
+                "file.txt')",
+                "$value"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Get All Files in Library (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Documents')/items",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Documents')",
+                "items"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Move File (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"destUrl\": \"https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/Shared Documents/Moved/file.txt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Rename File (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "X-HTTP-Method",
+                "value": "MERGE",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/getfilebyserverrelativeurl('/sites/{{SiteName}}/Shared Documents/OldName.txt')",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "getfilebyserverrelativeurl('",
+                "sites",
+                "{{SiteName}}",
+                "Shared Documents",
+                "OldName.txt')"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"SP.File\"\n  },\n  \"Name\": \"NewFileName.txt\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Upload File (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/getfolderbyserverrelativeurl('/sites/{{SiteName}}/Shared Documents')/files/add(url='file.txt',overwrite=true)",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "getfolderbyserverrelativeurl('",
+                "sites",
+                "{{SiteName}}",
+                "Shared Documents')",
+                "files",
+                "add(url='file.txt',overwrite=true)"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SHAREPOINT REST API - LISTS & LIBRARIES",
+      "item": [
+        {
+          "name": "Create List Item (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Projects')/items",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Projects')",
+                "items"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"SP.Data.ProjectsListItem\"\n  },\n  \"Title\": \"New Project\",\n  \"Status\": \"Active\",\n  \"DueDate\": \"2026-12-31\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Delete List Item (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "X-HTTP-Method",
+                "value": "DELETE",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Projects')/items({{ListItemID}})",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Projects')",
+                "items({{ListItemID}})"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Get All Lists (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Get List Items (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Projects')/items?$top=100",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Projects')",
+                "items"
+              ],
+              "query": [
+                {
+                  "key": "$top",
+                  "value": "100"
+                }
+              ],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Update List Item (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "X-HTTP-Method",
+                "value": "MERGE",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Projects')/items({{ListItemID}})",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Projects')",
+                "items({{ListItemID}})"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"SP.Data.ProjectsListItem\"\n  },\n  \"Title\": \"Updated Project Title\",\n  \"Status\": \"Completed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SHAREPOINT REST API - SECURITY & SHARING",
+      "item": [
+        {
+          "name": "Create Anonymous Sharing Link (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Documents')/items({{FileID}})/getShareLink(scope='Anonymous', role='view')",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Documents')",
+                "items({{FileID}})",
+                "getShareLink(scope='Anonymous', role='view')"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scope\": \"Anonymous\",\n  \"role\": \"view\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Item Permissions (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Documents')/items({{FileID}})/roleAssignments",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Documents')",
+                "items({{FileID}})",
+                "roleAssignments"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Share with User (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Documents')/items({{FileID}})/roleAssignments/add(principalId={{UserID}},roleDefId=1073741823)",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Documents')",
+                "items({{FileID}})",
+                "roleAssignments",
+                "add(principalId={{UserID}},roleDefId=1073741823)"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"principalId\": 6,\n  \"role\": \"role: 1073741827\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "name": "SITES - Provisioning & Lifecycle",
       "item": [
         {
@@ -4314,6 +5199,387 @@
           }
         }
       ]
+    },
+    {
+      "name": "COMPLIANCE - Retention & Sensitivity",
+      "item": [
+        {
+          "name": "COMPLIANCE - Apply Retention Label to File",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"retentionLabel\": {\n    \"name\": \"Project Files\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "COMPLIANCE - Apply Retention Label to Folder",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FolderID}}",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FolderID}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"retentionLabel\": {\n    \"name\": \"Important Documents\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "COMPLIANCE - Get File Retention Label",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "https://graph.microsoft.com/v1.0/drives/{{DriveID}}/items/{{FileID}}/retentionLabel",
+              "protocol": "https",
+              "host": [
+                "graph",
+                "microsoft",
+                "com"
+              ],
+              "path": [
+                "v1.0",
+                "drives",
+                "{{DriveID}}",
+                "items",
+                "{{FileID}}",
+                "retentionLabel"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SHAREPOINT REST API - PAGES",
+      "item": [
+        {
+          "name": "Create Page (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Site Pages')/items",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Site Pages')",
+                "items"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"SP.Data.SitePagesItem\"\n  },\n  \"Title\": \"New Page\",\n  \"FileLeafRef\": \"NewPage.aspx\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get All Pages (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Site Pages')/items?$select=Title,Id,FileLeafRef",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Site Pages')",
+                "items"
+              ],
+              "query": [
+                {
+                  "key": "$select",
+                  "value": "Title,Id,FileLeafRef"
+                }
+              ],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Get Page Details (REST)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Site Pages')/items({{PageID}})",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Site Pages')",
+                "items({{PageID}})"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Update Page (REST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "disabled": false,
+                "type": "default"
+              },
+              {
+                "key": "X-HTTP-Method",
+                "value": "MERGE",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "https://{{TenantName}}.sharepoint.com/sites/{{SiteName}}/_api/web/lists/getByTitle('Site Pages')/items({{PageID}})",
+              "protocol": "https",
+              "host": [
+                "{{TenantName}}",
+                "sharepoint",
+                "com"
+              ],
+              "path": [
+                "sites",
+                "{{SiteName}}",
+                "_api",
+                "web",
+                "lists",
+                "getByTitle('Site Pages')",
+                "items({{PageID}})"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"SP.Data.SitePagesItem\"\n  },\n  \"Title\": \"Updated Page Title\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   ],
   "variable": [
@@ -4424,6 +5690,16 @@
     },
     {
       "key": "UserEmail",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "ListItemID",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "UserID",
       "value": "",
       "type": "default"
     },
