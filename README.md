@@ -1,13 +1,13 @@
-# Graph API – SharePoint Online  
+# Graph/REST API – SharePoint Online  
 ### Practical Examples & Hands-On Guide for Devs & Admins
 
-This repository is a **personal, practical collection of working Microsoft Graph API examples for SharePoint Online**.
+This repository is a **personal, practical collection of working Microsoft Graph/REST API examples for SharePoint Online**.
 
 It is intended as a **guide and reference** for developers and administrators who struggle with:
 
 * SharePoint Online management
 * SharePoint integrations
-* Microsoft Graph API complexity
+* Microsoft Graph/REST API complexity
 * Translating Microsoft documentation into working code
 
 This is **not a framework** and **not a polished SDK**.
@@ -58,6 +58,7 @@ Clarity and learning value are prioritized over perfection.
 * Ideal for:
 
   * Exploring Graph endpoints
+  * Exploring SharePoint REST endpoints
   * Testing permissions
   * Understanding request/response structure
 
@@ -86,7 +87,7 @@ Clarity and learning value are prioritized over perfection.
 
 ## 🚀 How to Start (Recommended Path)
 
-If you are new to Graph + SharePoint:
+If you are new to Graph/REST + SharePoint:
 
 1. **Start with authentication**
 
